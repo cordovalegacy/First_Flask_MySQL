@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>First Flask MySQL</title>
+</head>
+
+<body class="bg-dark p-3">
+    <form action="/create_friend" method="post"
+        class="bg-light m-auto p-3 w-50 h-100 text-center text-warning form-control border border-primary">
+        <h2>Add a new friend to your list!</h2>
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" />
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" />
+        </div>
+        <div class="form-group">
+            <label for="occ">Occupation:</label>
+            <input type="text" name="occ" />
+        </div>
+        <input type="submit" value="Submit" class="btn-warning p-1" />
+    </form>
+    <hr/>
+    <div class="bg-primary m-auto p-2 text-center text-warning w-75 rounded border border-light">
+        <h2>Hello Friends!</h2>
+        <hr/>
+        {% for one_friend in all_friends %}
+        <p>First Name: {{one_friend.first_name}}</p>
+        <p>Last Name: {{one_friend.last_name}}</p>
+        <p>Occupation: {{one_friend.occupation}}</p>
+        <hr />
+        {% endfor %}
+    </div>
+</body>
+
+</html>
